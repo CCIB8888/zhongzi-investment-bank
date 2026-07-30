@@ -80,7 +80,7 @@ body{font-family:var(--font-cn);color:var(--gray-800);line-height:1.7;background
 .biz-image{height:420px;background:linear-gradient(135deg,var(--navy-800),var(--navy-700));border-radius:16px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;box-shadow:0 24px 60px rgba(10,22,40,0.18)}
 .biz-image::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 30% 40%,rgba(201,164,92,0.12),transparent 55%),radial-gradient(circle at 70% 80%,rgba(139,26,26,0.1),transparent 50%)}
 .biz-image::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-light))}
-.biz-image img,.biz-image svg{position:relative;z-index:2}
+.biz-image img,.biz-image svg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2}.biz-image::after{z-index:3}
 .biz-info h2{font-size:30px;font-weight:600;color:var(--navy-800);margin-bottom:24px;line-height:1.4}
 .biz-info p{font-size:16px;color:var(--gray-500);line-height:1.9;margin-bottom:18px}
 
