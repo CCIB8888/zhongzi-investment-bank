@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>中资投行 — 专注赋能新经济的领先金融机构</title>
+  <meta name="description" content="中资投行致力于为中国新经济企业提供投资管理、私募融资、并购、证券发行与承销、财富管理等一站式金融服务，在北京、上海、香港、纽约和新加坡设有办公室。">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .hero{min-height:100vh;background:linear-gradient(135deg,#0a1628 0%,#132240 40%,#1a2d4a 70%,#0f1f35 100%);display:flex;align-items:center;position:relative;overflow:hidden}
+    .hero::before{content:'';position:absolute;top:-50%;right:-20%;width:800px;height:800px;border-radius:50%;background:radial-gradient(circle,rgba(200,164,92,0.08),transparent 70%)}
+    .hero::after{content:'';position:absolute;bottom:-30%;left:-10%;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(200,164,92,0.05),transparent 70%)}
+    .hero-content{position:relative;z-index:2;padding:120px 0 80px}
+    .hero-badge{display:inline-block;border:1px solid rgba(200,164,92,0.3);color:var(--gold);font-size:13px;padding:6px 18px;border-radius:20px;margin-bottom:32px;letter-spacing:1px}
+    .hero h1{font-size:56px;font-weight:700;color:var(--white);line-height:1.2;margin-bottom:24px;letter-spacing:2px}
+    .hero h1 .gold{color:var(--gold)}
+    .hero-subtitle{font-size:18px;color:var(--text-light);max-width:560px;margin-bottom:48px;line-height:1.8}
+    .hero-stats{display:flex;gap:60px;margin-bottom:48px}
+    .hero-stat .num{font-size:42px;font-weight:700;color:var(--gold);font-family:var(--font-en);line-height:1}
+    .hero-stat .label{font-size:13px;color:var(--text-light);margin-top:8px}
+    .hero-cta{display:flex;gap:16px}
+    .about-image{position:relative}
+    .about-image-main{width:100%;height:400px;background:linear-gradient(135deg,#132240,#1a2d4a);border-radius:12px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+    .about-image-accent{position:absolute;bottom:-20px;right:-20px;width:180px;height:120px;background:linear-gradient(135deg,var(--gold),var(--gold-light));border-radius:8px;display:flex;align-items:center;justify-content:center;flex-direction:column}
+    .about-image-accent .big{font-size:36px;font-weight:700;color:var(--primary);font-family:var(--font-en)}
+    .about-image-accent .small{font-size:13px;color:var(--primary);opacity:0.8}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;margin-top:60px}
+    .about-info .info-title{font-size:28px;font-weight:600;color:var(--primary);margin-bottom:20px}
+    .about-info p{font-size:15px;color:var(--gray-500);line-height:1.8;margin-bottom:24px}
+    .about-offices{display:flex;gap:16px;flex-wrap:wrap}
+    .office-tag{padding:8px 20px;background:var(--gray-100);border-radius:20px;font-size:13px;color:var(--gray-700)}
+    .business-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:60px}
+    .business-card{background:var(--white);border-radius:12px;padding:40px 30px;transition:all 0.4s;border:1px solid var(--gray-200);position:relative;overflow:hidden}
+    .business-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-light));transform:scaleX(0);transform-origin:left;transition:transform 0.4s}
+    .business-card:hover{transform:translateY(-8px);box-shadow:0 20px 40px rgba(0,0,0,0.06);border-color:transparent}
+    .business-card:hover::before{transform:scaleX(1)}
+    .business-icon{width:56px;height:56px;background:var(--gray-100);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:24px;transition:all 0.4s}
+    .business-card:hover .business-icon{background:rgba(200,164,92,0.1)}
+    .business-card h3{font-size:20px;font-weight:600;color:var(--primary);margin-bottom:8px}
+    .business-card .en{font-size:11px;color:var(--gray-500);text-transform:uppercase;letter-spacing:1px;font-family:var(--font-en);margin-bottom:16px}
+    .business-card p{font-size:14px;color:var(--gray-500);line-height:1.7;margin-bottom:20px}
+    .business-card .more{font-size:13px;color:var(--gold);text-decoration:none;font-weight:500;display:inline-flex;align-items:center;gap:6px}
+    .business-card .more:hover{gap:10px}
+    @media(max-width:1024px){.business-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:768px){.business-grid{grid-template-columns:1fr}.hero h1{font-size:34px}.hero-stats{gap:30px}.hero-stat .num{font-size:30px}.about-grid{grid-template-columns:1fr;gap:40px}}
+  </style>
+</head>
+<body>
+
+<header class="header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo">
+      <div class="logo-icon">中</div>
+      <span class="logo-text">中资投行</span>
+    </a>
+    <nav class="nav">
+      <a href="index.html" class="active">首页</a>
+      <a href="about.html">关于我们</a>
+      <a href="investment-management.html">投资管理</a>
+      <a href="investment-banking.html">投资银行</a>
+      <a href="wealth-management.html">财富管理</a>
+      <a href="securities.html">中资证券</a>
+      <a href="awards.html">荣誉</a>
+      <a href="culture.html">企业文化</a>
+      <a href="contact.html">联系我们</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container hero-content">
+    <span class="hero-badge">CHINESE INVESTMENT BANK</span>
+    <h1>专注赋能<span class="gold">新经济</span>的<br>领先金融机构</h1>
+    <p class="hero-subtitle">中资投行致力于探寻最卓越的企业，并与之携手共进。我们构建"跨市场+全周期"资本服务体系，为中国新经济企业提供全方位金融服务。</p>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="num">200+</div><div class="label">服务企业</div></div>
+      <div class="hero-stat"><div class="num">500亿+</div><div class="label">累计交易规模（人民币）</div></div>
+      <div class="hero-stat"><div class="num">15年+</div><div class="label">行业深耕</div></div>
+    </div>
+    <div class="hero-cta">
+      <a href="investment-banking.html" class="btn btn-primary">了解我们的业务</a>
+      <a href="contact.html" class="btn btn-outline">联系我们</a>
+    </div>
+  </div>
+</section>
+
+<section class="content-section" id="about">
+  <div class="container">
+    <div class="section-label">ABOUT US</div>
+    <div class="section-title">关于中资投行</div>
+    <div class="about-grid">
+      <div class="about-image">
+        <div class="about-image-main">
+          <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
+            <rect x="26" y="20" width="68" height="80" rx="6" stroke="rgba(200,164,92,0.4)" stroke-width="2"/>
+            <line x1="60" y1="20" x2="60" y2="100" stroke="rgba(200,164,92,0.3)" stroke-width="1"/>
+            <line x1="26" y1="44" x2="94" y2="44" stroke="rgba(200,164,92,0.2)" stroke-width="1"/>
+            <line x1="26" y1="68" x2="94" y2="68" stroke="rgba(200,164,92,0.2)" stroke-width="1"/>
+            <circle cx="60" cy="80" r="8" fill="rgba(200,164,92,0.3)"/>
+            <path d="M92 20 L100 12 L108 20 L100 28 Z" fill="rgba(200,164,92,0.4)"/>
+            <path d="M92 100 L100 92 L108 100 L100 108 Z" fill="rgba(200,164,92,0.4)"/>
+          </svg>
+        </div>
+        <div class="about-image-accent"><span class="big">15+</span><span class="small">年专业积淀</span></div>
+      </div>
+      <div class="about-info">
+        <div class="info-title">致力于成为第一家诞生于中国的世界级金融企业</div>
+        <p>中资投行成立于2010年，十余年来我们始终专注于中国高增长及前景广阔的新经济行业。作为数千名新经济企业家值得信赖的资本市场伙伴，我们在蓬勃发展的新经济浪潮中扮演着重要的生态角色。</p>
+        <p>公司业务涵盖投资管理、私募融资、并购重组、证券发行与承销、证券研究与交易、财富管理等领域，为客户提供"跨市场+全周期"的一站式资本服务解决方案。</p>
+        <div class="about-offices">
+          <span class="office-tag">北京</span><span class="office-tag">上海</span><span class="office-tag">香港</span><span class="office-tag">纽约</span><span class="office-tag">新加坡</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="content-section alt">
+  <div class="container">
+    <div class="section-header" style="text-align:center">
+      <div class="section-label">OUR BUSINESS</div>
+      <div class="section-title">业务介绍</div>
+      <div class="section-desc" style="margin:0 auto">构建"跨市场+全周期"资本服务体系，基于对一二级市场的深度联动能力与创新金融工具，为企业提供高效融资、并购重组及跨境资本规划解决方案。</div>
+    </div>
+    <div class="business-grid">
+      <a href="investment-management.html" class="business-card" style="text-decoration:none;color:inherit">
+        <div class="business-icon"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="4" y="6" width="20" height="16" rx="3" stroke="#c8a45c" stroke-width="1.5"/><line x1="14" y1="6" x2="14" y2="22" stroke="#c8a45c" stroke-width="1"/><circle cx="14" cy="14" r="3" fill="#c8a45c" opacity="0.3"/></svg></div>
+        <h3>投资管理</h3>
+        <div class="en">INVESTMENT MANAGEMENT</div>
+        <p>专注于中国高增长及前景广阔的新经济行业，作为领先的私募股权投资者发掘价值。</p>
+        <span class="more">了解更多 →</span>
+      </a>
+      <a href="investment-banking.html" class="business-card" style="text-decoration:none;color:inherit">
+        <div class="business-icon"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="4" width="22" height="20" rx="4" stroke="#c8a45c" stroke-width="1.5"/><path d="M3 11h22" stroke="#c8a45c" stroke-width="1"/><line x1="14" y1="11" x2="14" y2="24" stroke="#c8a45c" stroke-width="0.5" opacity="0.5"/></svg></div>
+        <h3>投资银行</h3>
+        <div class="en">INVESTMENT BANKING</div>
+        <p>构建跨市场全周期资本服务体系，提供私募融资、并购重组及跨境资本规划解决方案。</p>
+        <span class="more">了解更多 →</span>
+      </a>
+      <a href="wealth-management.html" class="business-card" style="text-decoration:none;color:inherit">
+        <div class="business-icon"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="10" stroke="#c8a45c" stroke-width="1.5"/><circle cx="14" cy="14" r="4" fill="#c8a45c" opacity="0.3"/><line x1="14" y1="4" x2="14" y2="10" stroke="#c8a45c" stroke-width="1"/><line x1="14" y1="18" x2="14" y2="24" stroke="#c8a45c" stroke-width="1"/></svg></div>
+        <h3>财富管理</h3>
+        <div class="en">WEALTH MANAGEMENT</div>
+        <p>以客户需求和利益为中心，为中国企业家及高净值人群提供专业财富管理服务。</p>
+        <span class="more">了解更多 →</span>
+      </a>
+      <a href="securities.html" class="business-card" style="text-decoration:none;color:inherit">
+        <div class="business-icon"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2" y="3" width="12" height="10" rx="3" stroke="#c8a45c" stroke-width="1.5"/><rect x="16" y="3" width="10" height="7" rx="2" stroke="#c8a45c" stroke-width="1.5"/><rect x="2" y="15" width="10" height="10" rx="2" stroke="#c8a45c" stroke-width="1.5"/><rect x="14" y="12" width="12" height="13" rx="3" stroke="#c8a45c" stroke-width="1.5"/></svg></div>
+        <h3>中资证券</h3>
+        <div class="en">SECURITIES</div>
+        <p>聚焦中国大陆的投行子公司，提供证券承销、证券经纪、研究及资产管理服务。</p>
+        <span class="more">了解更多 →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo"><div class="logo-icon">中</div><span class="logo-text">中资投行</span></a>
+        <p>专注赋能新经济的领先金融机构。</p>
+      </div>
+      <div>
+        <h4>业务板块</h4>
+        <a href="investment-management.html">投资管理</a>
+        <a href="investment-banking.html">投资银行</a>
+        <a href="wealth-management.html">财富管理</a>
+        <a href="securities.html">中资证券</a>
+      </div>
+      <div>
+        <h4>关于我们</h4>
+        <a href="about.html">公司简介</a>
+        <a href="culture.html">企业文化</a>
+        <a href="awards.html">近期荣誉</a>
+        <a href="contact.html">加入我们</a>
+      </div>
+      <div>
+        <h4>联系我们</h4>
+        <a>北京：朝阳区建国路88号</a>
+        <a>上海：浦东新区陆家嘴环路1000号</a>
+        <a>香港：中环皇后大道中99号</a>
+        <a>info@zhongzi-ib.com</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 中资投行. All rights reserved.</span>
+      <span>京ICP备xxxxxxxx号</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
