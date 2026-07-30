@@ -1,0 +1,146 @@
+/* ===== 中资投行 - 共享样式 ===== */
+:root {
+  --primary: #0a1628;
+  --primary-light: #132240;
+  --gold: #c8a45c;
+  --gold-light: #d4b76e;
+  --white: #ffffff;
+  --gray-50: #f8f9fa;
+  --gray-100: #f1f3f5;
+  --gray-200: #e9ecef;
+  --gray-300: #dee2e6;
+  --gray-500: #6c757d;
+  --gray-700: #495057;
+  --gray-900: #212529;
+  --text-light: rgba(255,255,255,0.7);
+  --font-cn: "PingFang SC","Microsoft YaHei","Hiragino Sans GB",sans-serif;
+  --font-en: "Inter","Helvetica Neue",Arial,sans-serif;
+}
+
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-cn);color:var(--gray-900);line-height:1.7;background:var(--white);-webkit-font-smoothing:antialiased}
+.container{max-width:1200px;margin:0 auto;padding:0 40px}
+
+/* ===== Header ===== */
+.header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(10,22,40,0.95);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,0.08)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:72px}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo-icon{width:40px;height:40px;background:linear-gradient(135deg,var(--gold),var(--gold-light));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--primary);font-weight:700}
+.logo-text{font-size:20px;font-weight:600;color:var(--white);letter-spacing:2px}
+.nav{display:flex;align-items:center;gap:32px}
+.nav a{color:var(--text-light);text-decoration:none;font-size:14px;font-weight:400;transition:color 0.3s;position:relative;padding:4px 0}
+.nav a:hover,.nav a.active{color:var(--gold)}
+.nav a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:var(--gold);transition:width 0.3s}
+.nav a:hover::after,.nav a.active::after{width:100%}
+
+/* ===== Page Banner ===== */
+.page-banner{background:linear-gradient(135deg,#0a1628,#132240,#1a2d4a);padding:140px 0 60px;text-align:center;position:relative;overflow:hidden}
+.page-banner::before{content:'';position:absolute;top:-30%;right:-15%;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(200,164,92,0.06),transparent 70%)}
+.page-banner h1{font-size:42px;font-weight:700;color:var(--white);letter-spacing:2px;position:relative}
+.page-banner .subtitle{font-size:16px;color:var(--text-light);margin-top:12px;position:relative}
+.breadcrumb{margin-top:16px;font-size:13px;color:var(--text-light);position:relative}
+.breadcrumb a{color:var(--gold);text-decoration:none}
+.breadcrumb span{opacity:0.6}
+
+/* ===== Content Sections ===== */
+.content-section{padding:80px 0}
+.content-section.alt{background:var(--gray-50)}
+
+.section-header{margin-bottom:48px}
+.section-label{font-size:12px;text-transform:uppercase;letter-spacing:3px;color:var(--gold);margin-bottom:12px;font-family:var(--font-en)}
+.section-title{font-size:32px;font-weight:700;color:var(--primary);margin-bottom:16px;letter-spacing:1px}
+.section-desc{font-size:15px;color:var(--gray-500);max-width:640px;line-height:1.8}
+
+/* ===== Business Detail ===== */
+.biz-overview{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.biz-image{height:360px;background:linear-gradient(135deg,var(--primary),var(--primary-light));border-radius:12px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.biz-image::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 30% 50%,rgba(200,164,92,0.1),transparent 60%)}
+.biz-info h2{font-size:28px;font-weight:600;color:var(--primary);margin-bottom:20px}
+.biz-info p{font-size:15px;color:var(--gray-500);line-height:1.8;margin-bottom:16px}
+
+/* ===== Feature Grid ===== */
+.feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
+.feature-card{background:var(--white);border:1px solid var(--gray-200);border-radius:12px;padding:36px 28px;transition:all 0.3s}
+.feature-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,0.06);border-color:transparent}
+.feature-card .num{font-size:28px;font-weight:700;color:var(--gold);font-family:var(--font-en);margin-bottom:12px}
+.feature-card h4{font-size:17px;font-weight:600;color:var(--primary);margin-bottom:10px}
+.feature-card p{font-size:14px;color:var(--gray-500);line-height:1.7}
+
+/* ===== Two Column Layout ===== */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+.two-col h3{font-size:22px;font-weight:600;color:var(--primary);margin-bottom:16px}
+.two-col p{font-size:15px;color:var(--gray-500);line-height:1.8;margin-bottom:24px}
+.two-col ul{list-style:none;padding:0}
+.two-col ul li{font-size:14px;color:var(--gray-700);padding:10px 0;border-bottom:1px solid var(--gray-200);display:flex;align-items:center;gap:10px}
+.two-col ul li::before{content:'';display:block;width:6px;height:6px;background:var(--gold);border-radius:50%;flex-shrink:0}
+
+/* ===== Awards Grid ===== */
+.awards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.award-card{background:var(--gray-50);border-radius:12px;padding:32px 24px;text-align:center;transition:all 0.3s}
+.award-card:hover{background:var(--primary)}
+.award-card:hover .award-year,.award-card:hover .award-title,.award-card:hover .award-source{color:var(--white)}
+.award-card:hover .award-rank{color:var(--gold)}
+.award-year{font-size:12px;color:var(--gray-500);letter-spacing:2px;font-family:var(--font-en);margin-bottom:10px}
+.award-title{font-size:15px;color:var(--gray-700);margin-bottom:8px;font-weight:500}
+.award-rank{font-size:28px;font-weight:700;color:var(--gold);font-family:var(--font-en);margin-bottom:6px}
+.award-source{font-size:13px;color:var(--gray-500)}
+
+/* ===== Culture Grid ===== */
+.culture-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.culture-card{background:var(--white);border:1px solid var(--gray-200);border-radius:12px;padding:36px 24px;text-align:center;transition:all 0.3s}
+.culture-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,0.06)}
+.culture-icon{font-size:40px;margin-bottom:16px;display:block}
+.culture-card h3{font-size:17px;font-weight:600;color:var(--primary);margin-bottom:6px}
+.culture-card .en{font-size:11px;color:var(--gold);text-transform:uppercase;letter-spacing:1px;font-family:var(--font-en);margin-bottom:14px}
+.culture-card p{font-size:13px;color:var(--gray-500);line-height:1.6}
+
+/* ===== Contact ===== */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+.contact-info h3{font-size:22px;font-weight:600;color:var(--primary);margin-bottom:24px}
+.contact-item{margin-bottom:20px}
+.contact-item .label{font-size:12px;color:var(--gold);text-transform:uppercase;letter-spacing:2px;font-family:var(--font-en);margin-bottom:4px}
+.contact-item .value{font-size:15px;color:var(--gray-700)}
+.contact-form{background:var(--gray-50);padding:40px;border-radius:12px}
+.contact-form h3{font-size:20px;font-weight:600;color:var(--primary);margin-bottom:24px}
+.form-group{margin-bottom:20px}
+.form-group label{display:block;font-size:13px;color:var(--gray-700);margin-bottom:6px;font-weight:500}
+.form-group input,.form-group textarea,.form-group select{width:100%;padding:12px 16px;border:1px solid var(--gray-300);border-radius:6px;font-size:14px;font-family:var(--font-cn);color:var(--gray-900);transition:border-color 0.3s}
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus{outline:none;border-color:var(--gold)}
+.form-group textarea{resize:vertical;min-height:120px}
+.btn-submit{width:100%;padding:14px;background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--primary);border:none;border-radius:6px;font-size:15px;font-weight:600;cursor:pointer;transition:all 0.3s}
+.btn-submit:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(200,164,92,0.3)}
+
+/* ===== Footer ===== */
+.footer{background:var(--primary);color:var(--text-light);padding:80px 0 40px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px}
+.footer-brand .logo{margin-bottom:20px}
+.footer-brand p{font-size:14px;line-height:1.8;opacity:0.7}
+.footer h4{font-size:15px;color:var(--white);margin-bottom:20px;font-weight:500}
+.footer a{display:block;color:var(--text-light);text-decoration:none;font-size:14px;margin-bottom:12px;transition:color 0.3s}
+.footer a:hover{color:var(--gold)}
+.footer-bottom{margin-top:60px;padding-top:30px;border-top:1px solid rgba(255,255,255,0.08);display:flex;justify-content:space-between;align-items:center;font-size:13px;opacity:0.6}
+
+/* ===== Buttons ===== */
+.btn{padding:14px 36px;border-radius:6px;font-size:15px;font-weight:500;cursor:pointer;transition:all 0.3s;text-decoration:none;display:inline-block}
+.btn-primary{background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--primary);border:none}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(200,164,92,0.3)}
+.btn-outline{background:transparent;border:1px solid rgba(255,255,255,0.3);color:var(--white)}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold)}
+
+/* ===== Responsive ===== */
+@media(max-width:1024px){
+  .business-grid,.feature-grid{grid-template-columns:repeat(2,1fr)}
+  .culture-grid{grid-template-columns:repeat(2,1fr)}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .two-col,.biz-overview,.contact-grid{grid-template-columns:1fr}
+}
+
+@media(max-width:768px){
+  .container{padding:0 20px}
+  .nav{display:none}
+  .page-banner h1{font-size:30px}
+  .section-title{font-size:26px}
+  .business-grid,.feature-grid,.awards-grid,.culture-grid,.footer-grid{grid-template-columns:1fr}
+  .two-col,.biz-overview,.contact-grid{grid-template-columns:1fr;gap:40px}
+}
