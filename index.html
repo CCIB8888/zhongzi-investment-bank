@@ -7,42 +7,96 @@
   <meta name="description" content="中资投行致力于为中国新经济企业提供投资管理、私募融资、并购、证券发行与承销、财富管理等一站式金融服务，在北京、上海、香港、纽约和新加坡设有办公室。">
   <link rel="stylesheet" href="css/style.css">
   <style>
-    .hero{min-height:100vh;background:linear-gradient(135deg,#0a1628 0%,#132240 40%,#1a2d4a 70%,#0f1f35 100%);display:flex;align-items:center;position:relative;overflow:hidden}
-    .hero::before{content:'';position:absolute;top:-50%;right:-20%;width:800px;height:800px;border-radius:50%;background:radial-gradient(circle,rgba(200,164,92,0.08),transparent 70%)}
-    .hero::after{content:'';position:absolute;bottom:-30%;left:-10%;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(200,164,92,0.05),transparent 70%)}
-    .hero-content{position:relative;z-index:2;padding:120px 0 80px}
-    .hero-badge{display:inline-block;border:1px solid rgba(200,164,92,0.3);color:var(--gold);font-size:13px;padding:6px 18px;border-radius:20px;margin-bottom:32px;letter-spacing:1px}
-    .hero h1{font-size:56px;font-weight:700;color:var(--white);line-height:1.2;margin-bottom:24px;letter-spacing:2px}
-    .hero h1 .gold{color:var(--gold)}
-    .hero-subtitle{font-size:18px;color:var(--text-light);max-width:560px;margin-bottom:48px;line-height:1.8}
-    .hero-stats{display:flex;gap:60px;margin-bottom:48px}
-    .hero-stat .num{font-size:42px;font-weight:700;color:var(--gold);font-family:var(--font-en);line-height:1}
-    .hero-stat .label{font-size:13px;color:var(--text-light);margin-top:8px}
-    .hero-cta{display:flex;gap:16px}
+    .hero{min-height:100vh;background:var(--navy-900);display:flex;align-items:center;position:relative;overflow:hidden}
+    .hero-bg{position:absolute;inset:0;z-index:0}
+    .hero-bg .gradient{position:absolute;inset:0;background:radial-gradient(ellipse at 20% 30%,rgba(139,26,26,0.22) 0%,transparent 45%),radial-gradient(ellipse at 80% 20%,rgba(201,164,92,0.12) 0%,transparent 40%),radial-gradient(ellipse at 60% 80%,rgba(28,54,86,0.6) 0%,transparent 50%);animation:pulse-gold 8s ease-in-out infinite}
+    .hero-bg .mesh{position:absolute;inset:0;background-image:linear-gradient(rgba(201,164,92,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(201,164,92,0.04) 1px,transparent 1px);background-size:80px 80px;mask-image:radial-gradient(ellipse at center,rgba(0,0,0,1) 0%,transparent 75%)}
+    .hero-bg .orb{position:absolute;border-radius:50%;filter:blur(80px);opacity:0.4;animation:float 12s ease-in-out infinite}
+    .hero-bg .orb-1{top:10%;right:15%;width:360px;height:360px;background:var(--gold);animation-delay:0s}
+    .hero-bg .orb-2{bottom:15%;left:10%;width:300px;height:300px;background:var(--red);animation-delay:-4s}
+    .hero-content{position:relative;z-index:2;padding:140px 0 100px;width:100%}
+    .hero-badge{display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(201,164,92,0.35);color:var(--gold);font-size:12px;padding:8px 20px;border-radius:30px;margin-bottom:36px;letter-spacing:2px;text-transform:uppercase;font-family:var(--font-en)}
+    .hero-badge::before{content:'';width:6px;height:6px;background:var(--gold);border-radius:50%;animation:pulse-gold 2s infinite}
+    .hero-main{display:grid;grid-template-columns:1.2fr 1fr;gap:80px;align-items:center}
+    .hero h1{font-size:58px;font-weight:600;color:var(--white);line-height:1.15;margin-bottom:28px;letter-spacing:2px}
+    .hero h1 .gold{color:var(--gold-light)}
+    .hero h1 .red{color:var(--red)}
+    .hero-subtitle{font-size:18px;color:var(--text-light);max-width:540px;margin-bottom:44px;line-height:1.9}
+    .hero-stats{display:flex;gap:56px;margin-bottom:48px}
+    .hero-stat{position:relative;padding-left:20px;border-left:1px solid rgba(201,164,92,0.3)}
+    .hero-stat .num{font-size:44px;font-weight:700;color:var(--gold);font-family:var(--font-en);line-height:1}
+    .hero-stat .label{font-size:13px;color:var(--text-light);margin-top:8px;letter-spacing:1px}
+    .hero-cta{display:flex;gap:18px}
+    .hero-visual{display:flex;align-items:center;justify-content:center;position:relative}
+    .hero-visual .logo-frame{width:340px;height:340px;border-radius:50%;background:rgba(255,255,255,0.03);border:1px solid rgba(201,164,92,0.2);display:flex;align-items:center;justify-content:center;position:relative;backdrop-filter:blur(8px)}
+    .hero-visual .logo-frame::before{content:'';position:absolute;inset:-20px;border-radius:50%;border:1px dashed rgba(201,164,92,0.2);animation:spin 30s linear infinite}
+    .hero-visual img{height:220px;width:auto;filter:drop-shadow(0 20px 40px rgba(0,0,0,0.4))}
+    @keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+    
+    .about-section{padding:120px 0;background:var(--white)}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:90px;align-items:center}
     .about-image{position:relative}
-    .about-image-main{width:100%;height:400px;background:linear-gradient(135deg,#132240,#1a2d4a);border-radius:12px;display:flex;align-items:center;justify-content:center;overflow:hidden}
-    .about-image-accent{position:absolute;bottom:-20px;right:-20px;width:180px;height:120px;background:linear-gradient(135deg,var(--gold),var(--gold-light));border-radius:8px;display:flex;align-items:center;justify-content:center;flex-direction:column}
-    .about-image-accent .big{font-size:36px;font-weight:700;color:var(--primary);font-family:var(--font-en)}
-    .about-image-accent .small{font-size:13px;color:var(--primary);opacity:0.8}
-    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;margin-top:60px}
-    .about-info .info-title{font-size:28px;font-weight:600;color:var(--primary);margin-bottom:20px}
-    .about-info p{font-size:15px;color:var(--gray-500);line-height:1.8;margin-bottom:24px}
-    .about-offices{display:flex;gap:16px;flex-wrap:wrap}
-    .office-tag{padding:8px 20px;background:var(--gray-100);border-radius:20px;font-size:13px;color:var(--gray-700)}
+    .about-image-main{width:100%;height:460px;background:linear-gradient(135deg,var(--navy-800),var(--navy-700));border-radius:16px;display:flex;align-items:center;justify-content:center;overflow:hidden;box-shadow:0 32px 80px rgba(10,22,40,0.18);position:relative}
+    .about-image-main::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,rgba(201,164,92,0.12),transparent 60%)}
+    .about-image-main img{height:280px;width:auto;position:relative;z-index:2;filter:drop-shadow(0 16px 32px rgba(0,0,0,0.35))}
+    .about-image-accent{position:absolute;bottom:-24px;right:-24px;width:200px;height:140px;background:linear-gradient(135deg,var(--gold),var(--gold-light));border-radius:12px;display:flex;align-items:center;justify-content:center;flex-direction:column;padding:20px;box-shadow:0 20px 48px rgba(201,164,92,0.25)}
+    .about-image-accent .big{font-size:42px;font-weight:700;color:var(--navy-900);font-family:var(--font-en)}
+    .about-image-accent .small{font-size:13px;color:var(--navy-900);opacity:0.8;text-align:center}
+    .about-info .info-title{font-size:32px;font-weight:600;color:var(--navy-800);margin-bottom:24px;line-height:1.4}
+    .about-info p{font-size:16px;color:var(--gray-500);line-height:1.9;margin-bottom:22px}
+    .about-offices{display:flex;gap:14px;flex-wrap:wrap;margin-top:32px}
+    .office-tag{padding:10px 22px;background:var(--white);border:1px solid var(--gray-200);border-radius:24px;font-size:13px;color:var(--gray-700);transition:all 0.3s}
+    .office-tag:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px)}
+    
+    .business-section{background:var(--gray-50)}
     .business-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:60px}
-    .business-card{background:var(--white);border-radius:12px;padding:40px 30px;transition:all 0.4s;border:1px solid var(--gray-200);position:relative;overflow:hidden}
-    .business-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-light));transform:scaleX(0);transform-origin:left;transition:transform 0.4s}
-    .business-card:hover{transform:translateY(-8px);box-shadow:0 20px 40px rgba(0,0,0,0.06);border-color:transparent}
-    .business-card:hover::before{transform:scaleX(1)}
-    .business-icon{width:56px;height:56px;background:var(--gray-100);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:24px;transition:all 0.4s}
-    .business-card:hover .business-icon{background:rgba(200,164,92,0.1)}
-    .business-card h3{font-size:20px;font-weight:600;color:var(--primary);margin-bottom:8px}
-    .business-card .en{font-size:11px;color:var(--gray-500);text-transform:uppercase;letter-spacing:1px;font-family:var(--font-en);margin-bottom:16px}
-    .business-card p{font-size:14px;color:var(--gray-500);line-height:1.7;margin-bottom:20px}
-    .business-card .more{font-size:13px;color:var(--gold);text-decoration:none;font-weight:500;display:inline-flex;align-items:center;gap:6px}
-    .business-card .more:hover{gap:10px}
-    @media(max-width:1024px){.business-grid{grid-template-columns:repeat(2,1fr)}}
-    @media(max-width:768px){.business-grid{grid-template-columns:1fr}.hero h1{font-size:34px}.hero-stats{gap:30px}.hero-stat .num{font-size:30px}.about-grid{grid-template-columns:1fr;gap:40px}}
+    .business-card{background:var(--white);border-radius:14px;padding:42px 30px;transition:all 0.4s cubic-bezier(0.165,0.84,0.44,1);border:1px solid var(--gray-200);position:relative;overflow:hidden;text-decoration:none;color:inherit;display:block}
+    .business-card::before{content:'';position:absolute;top:0;left:0;right:0;height:0;background:linear-gradient(90deg,var(--gold),var(--gold-light));transition:height 0.4s ease}
+    .business-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:0;background:linear-gradient(180deg,transparent,rgba(201,164,92,0.03));transition:height 0.4s ease}
+    .business-card:hover{transform:translateY(-10px);box-shadow:0 28px 60px rgba(10,22,40,0.12);border-color:transparent}
+    .business-card:hover::before{height:4px}
+    .business-card:hover::after{height:120px}
+    .business-icon{width:64px;height:64px;background:var(--gray-50);border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:26px;transition:all 0.4s;position:relative}
+    .business-card:hover .business-icon{background:rgba(201,164,92,0.1);transform:scale(1.05)}
+    .business-card h3{font-size:21px;font-weight:600;color:var(--navy-800);margin-bottom:8px;position:relative}
+    .business-card .en{font-size:11px;color:var(--gray-400);text-transform:uppercase;letter-spacing:1.5px;font-family:var(--font-en);margin-bottom:18px;position:relative}
+    .business-card p{font-size:14.5px;color:var(--gray-500);line-height:1.8;margin-bottom:24px;position:relative}
+    .business-card .more{font-size:13px;color:var(--gold);text-decoration:none;font-weight:600;display:inline-flex;align-items:center;gap:6px;position:relative;transition:gap 0.3s}
+    .business-card:hover .more{gap:10px}
+    
+    .why-section{background:var(--navy-900);position:relative;overflow:hidden}
+    .why-section::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background-image:radial-gradient(circle at 30% 20%,rgba(201,164,92,0.06) 0%,transparent 35%),radial-gradient(circle at 70% 80%,rgba(139,26,26,0.06) 0%,transparent 35%);pointer-events:none}
+    .why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:56px;position:relative}
+    .why-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:38px 28px;transition:all 0.4s}
+    .why-card:hover{background:rgba(255,255,255,0.06);transform:translateY(-6px);border-color:rgba(201,164,92,0.25);box-shadow:0 20px 48px rgba(0,0,0,0.2)}
+    .why-card .icon{width:52px;height:52px;background:rgba(201,164,92,0.1);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:22px;color:var(--gold);font-size:22px}
+    .why-card h4{font-size:17px;font-weight:600;color:var(--white);margin-bottom:12px}
+    .why-card p{font-size:14px;color:var(--text-light);line-height:1.8}
+    
+    .cta-section{background:linear-gradient(135deg,var(--navy-800),var(--navy-700));padding:120px 0;text-align:center;position:relative;overflow:hidden}
+    .cta-section::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h100v100H0z' fill='none'/%3E%3Cg stroke='%23c9a45c' stroke-width='0.5' fill='none' opacity='0.08'%3E%3Cpath d='M0 50h100M50 0v100'/%3E%3Ccircle cx='50' cy='50' r='20'/%3E%3Ccircle cx='50' cy='50' r='40'/%3E%3C/g%3E%3C/svg%3E");pointer-events:none}
+    .cta-section h2{font-size:38px;font-weight:600;color:var(--white);margin-bottom:20px;position:relative}
+    .cta-section p{font-size:17px;color:var(--text-light);margin-bottom:36px;max-width:560px;margin-left:auto;margin-right:auto;position:relative}
+    .cta-section .btn{position:relative}
+    
+    @media(max-width:1024px){
+      .hero-main{grid-template-columns:1fr}
+      .hero h1{font-size:46px}
+      .hero-visual{display:none}
+      .business-grid{grid-template-columns:repeat(2,1fr)}
+      .why-grid{grid-template-columns:repeat(2,1fr)}
+      .about-grid{grid-template-columns:1fr;gap:60px}
+    }
+    @media(max-width:768px){
+      .hero h1{font-size:34px}
+      .hero-stats{gap:32px}
+      .hero-stat .num{font-size:32px}
+      .business-grid,.why-grid{grid-template-columns:1fr}
+      .about-image-main{height:360px}
+      .about-image-main img{height:200px}
+      .about-image-accent{right:0;width:160px;height:110px}
+      .cta-section h2{font-size:28px}
+    }
   </style>
 </head>
 <body>
@@ -50,8 +104,8 @@
 <header class="header">
   <div class="container header-inner">
     <a href="index.html" class="logo">
-      <div class="logo-icon">中</div>
-      <span class="logo-text">中资投行</span>
+      <img src="images/logo.jpg" alt="中资投行">
+      <span class="logo-text"><span class="cn">中资投行</span><span class="en">Chinese Investment Bank</span></span>
     </a>
     <nav class="nav">
       <a href="index.html" class="active">首页</a>
@@ -68,40 +122,55 @@
 </header>
 
 <section class="hero">
+  <div class="hero-bg">
+    <div class="gradient"></div>
+    <div class="mesh"></div>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+  </div>
   <div class="container hero-content">
-    <span class="hero-badge">CHINESE INVESTMENT BANK</span>
-    <h1>专注赋能<span class="gold">新经济</span>的<br>领先金融机构</h1>
-    <p class="hero-subtitle">中资投行致力于探寻最卓越的企业，并与之携手共进。我们构建"跨市场+全周期"资本服务体系，为中国新经济企业提供全方位金融服务。</p>
-    <div class="hero-stats">
-      <div class="hero-stat"><div class="num">200+</div><div class="label">服务企业</div></div>
-      <div class="hero-stat"><div class="num">500亿+</div><div class="label">累计交易规模（人民币）</div></div>
-      <div class="hero-stat"><div class="num">15年+</div><div class="label">行业深耕</div></div>
-    </div>
-    <div class="hero-cta">
-      <a href="investment-banking.html" class="btn btn-primary">了解我们的业务</a>
-      <a href="contact.html" class="btn btn-outline">联系我们</a>
+    <div class="hero-main">
+      <div>
+        <span class="hero-badge">CHINESE INVESTMENT BANK</span>
+        <h1>专注赋能<span class="gold">新经济</span><br>的领先金融机构</h1>
+        <p class="hero-subtitle">中资投行致力于探寻最卓越的企业，并与之携手共进。我们构建"跨市场+全周期"资本服务体系，为中国新经济企业提供全方位金融服务。</p>
+        <div class="hero-stats">
+          <div class="hero-stat"><div class="num">200+</div><div class="label">服务企业</div></div>
+          <div class="hero-stat"><div class="num">500亿+</div><div class="label">累计交易规模</div></div>
+          <div class="hero-stat"><div class="num">15年+</div><div class="label">行业深耕</div></div>
+        </div>
+        <div class="hero-cta">
+          <a href="investment-banking.html" class="btn btn-primary">了解我们的业务 →</a>
+          <a href="contact.html" class="btn btn-outline">联系我们</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="logo-frame">
+          <img src="images/logo.jpg" alt="中资投行 Logo">
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="content-section" id="about">
+<section class="about-section" id="about">
   <div class="container">
-    <div class="section-label">ABOUT US</div>
-    <div class="section-title">关于中资投行</div>
+    <div class="section-header">
+      <div class="section-label">ABOUT US</div>
+      <div class="section-title">关于中资投行</div>
+      <div class="section-desc">作为一家植根中国、布局全球的新经济投行，我们始终专注于为卓越企业提供长期资本支持与战略价值创造。</div>
+    </div>
     <div class="about-grid">
       <div class="about-image">
         <div class="about-image-main">
-          <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
-            <rect x="26" y="20" width="68" height="80" rx="6" stroke="rgba(200,164,92,0.4)" stroke-width="2"/>
-            <line x1="60" y1="20" x2="60" y2="100" stroke="rgba(200,164,92,0.3)" stroke-width="1"/>
-            <line x1="26" y1="44" x2="94" y2="44" stroke="rgba(200,164,92,0.2)" stroke-width="1"/>
-            <line x1="26" y1="68" x2="94" y2="68" stroke="rgba(200,164,92,0.2)" stroke-width="1"/>
-            <circle cx="60" cy="80" r="8" fill="rgba(200,164,92,0.3)"/>
-            <path d="M92 20 L100 12 L108 20 L100 28 Z" fill="rgba(200,164,92,0.4)"/>
-            <path d="M92 100 L100 92 L108 100 L100 108 Z" fill="rgba(200,164,92,0.4)"/>
-          </svg>
+          <img src="images/logo.jpg" alt="中资投行">
         </div>
-        <div class="about-image-accent"><span class="big">15+</span><span class="small">年专业积淀</span></div>
+        <div class="about-image-accent">
+          <div style="text-align:center">
+            <div class="big">15+</div>
+            <div class="small">年专业积淀</div>
+          </div>
+        </div>
       </div>
       <div class="about-info">
         <div class="info-title">致力于成为第一家诞生于中国的世界级金融企业</div>
@@ -115,37 +184,37 @@
   </div>
 </section>
 
-<section class="content-section alt">
+<section class="content-section business-section">
   <div class="container">
     <div class="section-header" style="text-align:center">
-      <div class="section-label">OUR BUSINESS</div>
+      <div class="section-label" style="justify-content:center">OUR BUSINESS</div>
       <div class="section-title">业务介绍</div>
       <div class="section-desc" style="margin:0 auto">构建"跨市场+全周期"资本服务体系，基于对一二级市场的深度联动能力与创新金融工具，为企业提供高效融资、并购重组及跨境资本规划解决方案。</div>
     </div>
     <div class="business-grid">
-      <a href="investment-management.html" class="business-card" style="text-decoration:none;color:inherit">
-        <div class="business-icon"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="4" y="6" width="20" height="16" rx="3" stroke="#c8a45c" stroke-width="1.5"/><line x1="14" y1="6" x2="14" y2="22" stroke="#c8a45c" stroke-width="1"/><circle cx="14" cy="14" r="3" fill="#c8a45c" opacity="0.3"/></svg></div>
+      <a href="investment-management.html" class="business-card">
+        <div class="business-icon"><svg width="30" height="30" viewBox="0 0 28 28" fill="none"><rect x="4" y="6" width="20" height="16" rx="3" stroke="#c8a45c" stroke-width="1.5"/><line x1="14" y1="6" x2="14" y2="22" stroke="#c8a45c" stroke-width="1"/><circle cx="14" cy="14" r="3" fill="#c8a45c" opacity="0.3"/></svg></div>
         <h3>投资管理</h3>
         <div class="en">INVESTMENT MANAGEMENT</div>
         <p>专注于中国高增长及前景广阔的新经济行业，作为领先的私募股权投资者发掘价值。</p>
         <span class="more">了解更多 →</span>
       </a>
-      <a href="investment-banking.html" class="business-card" style="text-decoration:none;color:inherit">
-        <div class="business-icon"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="4" width="22" height="20" rx="4" stroke="#c8a45c" stroke-width="1.5"/><path d="M3 11h22" stroke="#c8a45c" stroke-width="1"/><line x1="14" y1="11" x2="14" y2="24" stroke="#c8a45c" stroke-width="0.5" opacity="0.5"/></svg></div>
+      <a href="investment-banking.html" class="business-card">
+        <div class="business-icon"><svg width="30" height="30" viewBox="0 0 28 28" fill="none"><rect x="3" y="4" width="22" height="20" rx="4" stroke="#c8a45c" stroke-width="1.5"/><path d="M3 11h22" stroke="#c8a45c" stroke-width="1"/><line x1="14" y1="11" x2="14" y2="24" stroke="#c8a45c" stroke-width="0.5" opacity="0.5"/></svg></div>
         <h3>投资银行</h3>
         <div class="en">INVESTMENT BANKING</div>
         <p>构建跨市场全周期资本服务体系，提供私募融资、并购重组及跨境资本规划解决方案。</p>
         <span class="more">了解更多 →</span>
       </a>
-      <a href="wealth-management.html" class="business-card" style="text-decoration:none;color:inherit">
-        <div class="business-icon"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="10" stroke="#c8a45c" stroke-width="1.5"/><circle cx="14" cy="14" r="4" fill="#c8a45c" opacity="0.3"/><line x1="14" y1="4" x2="14" y2="10" stroke="#c8a45c" stroke-width="1"/><line x1="14" y1="18" x2="14" y2="24" stroke="#c8a45c" stroke-width="1"/></svg></div>
+      <a href="wealth-management.html" class="business-card">
+        <div class="business-icon"><svg width="30" height="30" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="10" stroke="#c8a45c" stroke-width="1.5"/><circle cx="14" cy="14" r="4" fill="#c8a45c" opacity="0.3"/><line x1="14" y1="4" x2="14" y2="10" stroke="#c8a45c" stroke-width="1"/><line x1="14" y1="18" x2="14" y2="24" stroke="#c8a45c" stroke-width="1"/></svg></div>
         <h3>财富管理</h3>
         <div class="en">WEALTH MANAGEMENT</div>
         <p>以客户需求和利益为中心，为中国企业家及高净值人群提供专业财富管理服务。</p>
         <span class="more">了解更多 →</span>
       </a>
-      <a href="securities.html" class="business-card" style="text-decoration:none;color:inherit">
-        <div class="business-icon"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="2" y="3" width="12" height="10" rx="3" stroke="#c8a45c" stroke-width="1.5"/><rect x="16" y="3" width="10" height="7" rx="2" stroke="#c8a45c" stroke-width="1.5"/><rect x="2" y="15" width="10" height="10" rx="2" stroke="#c8a45c" stroke-width="1.5"/><rect x="14" y="12" width="12" height="13" rx="3" stroke="#c8a45c" stroke-width="1.5"/></svg></div>
+      <a href="securities.html" class="business-card">
+        <div class="business-icon"><svg width="30" height="30" viewBox="0 0 28 28" fill="none"><rect x="2" y="3" width="12" height="10" rx="3" stroke="#c8a45c" stroke-width="1.5"/><rect x="16" y="3" width="10" height="7" rx="2" stroke="#c8a45c" stroke-width="1.5"/><rect x="2" y="15" width="10" height="10" rx="2" stroke="#c8a45c" stroke-width="1.5"/><rect x="14" y="12" width="12" height="13" rx="3" stroke="#c8a45c" stroke-width="1.5"/></svg></div>
         <h3>中资证券</h3>
         <div class="en">SECURITIES</div>
         <p>聚焦中国大陆的投行子公司，提供证券承销、证券经纪、研究及资产管理服务。</p>
@@ -155,12 +224,55 @@
   </div>
 </section>
 
+<section class="content-section why-section">
+  <div class="container">
+    <div class="section-header" style="text-align:center">
+      <div class="section-label light" style="justify-content:center">WHY US</div>
+      <div class="section-title light">我们的优势</div>
+      <div class="section-desc light" style="margin:0 auto">十余年的行业深耕，造就了我们在新经济金融服务领域的独特竞争力。</div>
+    </div>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="icon">◆</div>
+        <h4>行业洞见</h4>
+        <p>深耕科技、消费、医疗、新能源等新经济赛道，对产业趋势有前瞻性判断。</p>
+      </div>
+      <div class="why-card">
+        <div class="icon">◆</div>
+        <h4>全球网络</h4>
+        <p>覆盖北京、上海、香港、纽约、新加坡五大金融中心，链接全球资本。</p>
+      </div>
+      <div class="why-card">
+        <div class="icon">◆</div>
+        <h4>全周期服务</h4>
+        <p>从早期投资、私募融资到并购重组、上市承销，陪伴企业全生命周期。</p>
+      </div>
+      <div class="why-card">
+        <div class="icon">◆</div>
+        <h4>专业团队</h4>
+        <p>来自顶级投行、咨询公司与产业背景的资深团队，兼具本土智慧与全球视野。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="container">
+    <h2>开启与中资投行的合作</h2>
+    <p>无论您是寻求融资、并购还是财富管理方案，我们的专业团队随时准备为您提供支持。</p>
+    <a href="contact.html" class="btn btn-primary">立即咨询 →</a>
+  </div>
+</section>
+
 <footer class="footer">
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a href="index.html" class="logo"><div class="logo-icon">中</div><span class="logo-text">中资投行</span></a>
-        <p>专注赋能新经济的领先金融机构。</p>
+        <a href="index.html" class="logo">
+          <img src="images/logo.jpg" alt="中资投行">
+          <span class="logo-text"><span class="cn">中资投行</span><span class="en">Chinese Investment Bank</span></span>
+        </a>
+        <p>专注赋能新经济的领先金融机构，致力于成为第一家诞生于中国的世界级金融企业。</p>
       </div>
       <div>
         <h4>业务板块</h4>
